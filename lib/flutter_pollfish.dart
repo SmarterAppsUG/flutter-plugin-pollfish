@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 
 // Pollfish notifications
 
-typedef void PollfishSurveyReceivedListener(String result);
-typedef void PollfishSurveyCompletedListener(String result);
+typedef void PollfishSurveyReceivedListener(String? result);
+typedef void PollfishSurveyCompletedListener(String? result);
 typedef void PollfishUserNotEligibleListener();
 typedef void PollfishUserRejectedSurveyListener();
 typedef void PollfishOpenedListener();
@@ -26,22 +26,22 @@ class FlutterPollfish {
     _channel.setMethodCallHandler(_platformCallHandler);
   }
 
-  static PollfishSurveyReceivedListener _pollfishSurveyReceivedListener;
-  static PollfishSurveyCompletedListener _pollfishSurveyCompletedListener;
-  static PollfishUserNotEligibleListener _pollfishUserNotEligibleListener;
-  static PollfishUserRejectedSurveyListener _pollfishUserRejectedSurveyListener;
-  static PollfishOpenedListener _pollfishOpenedListener;
-  static PollfishClosedListener _pollfishClosedListener;
-  static PollfishSurveyNotAvailableListener _pollfishSurveyNotAvailableListener;
+  static late PollfishSurveyReceivedListener _pollfishSurveyReceivedListener;
+  static late PollfishSurveyCompletedListener _pollfishSurveyCompletedListener;
+  static late PollfishUserNotEligibleListener _pollfishUserNotEligibleListener;
+  static late PollfishUserRejectedSurveyListener _pollfishUserRejectedSurveyListener;
+  static late PollfishOpenedListener _pollfishOpenedListener;
+  static late PollfishClosedListener _pollfishClosedListener;
+  static late PollfishSurveyNotAvailableListener _pollfishSurveyNotAvailableListener;
 
   Future<void> init(
-      {String apiKey,
-      int pollfishPosition,
-      int indPadding,
-      bool rewardMode,
-      bool releaseMode,
-      bool offerwallMode,
-      String requestUUID}) async {
+      {String? apiKey,
+      int? pollfishPosition,
+      int? indPadding,
+      bool? rewardMode,
+      bool? releaseMode,
+      bool? offerwallMode,
+      String? requestUUID}) async {
     assert(apiKey != null && apiKey.isNotEmpty);
 
     print(' invokeMethod FlutterPollfish.init()... ');
